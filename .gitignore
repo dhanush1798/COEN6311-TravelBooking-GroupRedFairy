@@ -5,3 +5,4 @@ venv/
 *.iml
 __pycache__/
 .env
+Config.py
