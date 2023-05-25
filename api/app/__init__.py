@@ -9,6 +9,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = Config.SQLALCHEMY_TRACK_MODIFICAT
 
 # Register extensions
 db.init_app(app)
+# Create the database tables if they don't exist
+with app.app_context():
+	db.create_all()
 
 # Register the routes
 app.register_blueprint(user_routes.user_routes)
