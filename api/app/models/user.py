@@ -1,11 +1,12 @@
 """ 
 User class model 
 """
+import enum
 from sqlalchemy import Column, String
 from sqlalchemy.types import Integer, Enum, DateTime
-from app import db
+from app.extensions import db
 
-class UserRoleEnum(Enum):
+class UserRoleEnum(enum.Enum):
 	admin = 'admin'
 	agent = 'agent'
 	user = 'user'
