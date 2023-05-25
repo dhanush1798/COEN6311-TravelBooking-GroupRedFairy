@@ -23,7 +23,7 @@ class User(db.Model):
 	state = Column(String(120), nullable=True)
 	country = Column(String(120), nullable=True)
 	role = Column(Enum(UserRoleEnum), default='user', nullable=False)
-	created_at = Column(DateTime, nullable=False)
+	created_at = Column(DateTime, nullable=False, server_default=db.func.now())
 
 	def get_id(self):
 		return self.id
