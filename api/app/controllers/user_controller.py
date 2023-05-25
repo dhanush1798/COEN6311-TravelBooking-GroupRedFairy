@@ -1,6 +1,7 @@
 from flask import jsonify
 from app.services.user_service import UserService
 from app.utils.sanitize import sanitize_input
+from bcrypt import hashpw, gensalt
 
 class UserController:
 	def __init__(self):
@@ -28,6 +29,9 @@ class UserController:
 		# Validate the data
 		if not email or not password or not first_name or not last_name:
 			return jsonify({'message': 'All fields are required'}), 400
+		
+		# Hash the password
+		password = hashpw(password.encode('utf-8'), gensalt())
 		
 		# Check if the user already exists
 		if self.user_service.get_user_by_email(email):
