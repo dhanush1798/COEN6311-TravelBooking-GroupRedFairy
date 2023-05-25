@@ -57,3 +57,17 @@ class User(db.Model):
 	
 	def get_created_at(self):
 		return self.created_at
+	
+	def serialize(self):
+		# Return public safe data
+		return {
+			'id': self.get_id(),
+			'email': self.get_email(),
+			'first_name': self.get_first_name(),
+			'last_name': self.get_last_name(),
+			'city': self.get_city(),
+			'state': self.get_state(),
+			'country': self.get_country(),
+			'role': self.get_role().value,
+			'created_at': self.get_created_at()
+		}
