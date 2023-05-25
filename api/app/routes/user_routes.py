@@ -11,3 +11,9 @@ def register():
 		return user_controller.register(request)
 	return jsonify({'message': 'Invalid request'}), 400
 	
+# User login route: /api/user/login
+@user_routes.route('/login', methods=['POST'])
+def login():
+	if request.method == 'POST' and request.is_json:
+		return user_controller.login(request)
+	return jsonify({'message': 'Invalid request'}), 400

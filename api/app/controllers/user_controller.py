@@ -44,3 +44,18 @@ class UserController:
 			return jsonify(user), 201
 		except Exception as e:
 			return jsonify({'message': str(e)}), 400
+		
+	def login(self, request):
+		try:
+			data = request.get_json()
+			email = data.get('email')
+			password = data.get('password')
+
+			# Sanitize and escape the data if data exists
+			email = sanitize_input(email)
+			password = sanitize_input(password)
+
+			return UserService.login(email, password)
+		except Exception as e:
+			return jsonify({'message': str(e)}), 400
+
