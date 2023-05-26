@@ -39,3 +39,7 @@ class UserService:
 		if user and hashpw(password.encode('utf-8'), user.password.encode('utf-8')) == user.password.encode('utf-8'):
 			return True
 		return False
+	
+	@staticmethod
+	def get_user_by_email(email):
+		return User.query.filter_by(email=email).first()

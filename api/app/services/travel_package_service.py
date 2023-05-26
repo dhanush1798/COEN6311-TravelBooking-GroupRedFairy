@@ -19,7 +19,7 @@ class TravelPackageService:
 	@staticmethod
 	def create_package(name, description, flights, hotels, activities):
 		# Get current user email
-		email = session.get('email')
+		email = session.get('user')
 		# Check if user exists with that email
 		user = User.query.filter_by(email=email).first()
 		if user is None:
@@ -39,7 +39,7 @@ class TravelPackageService:
 	@staticmethod
 	def update_package(data, package_id):
 		# Get current user email
-		email = session.get('email')
+		email = session.get('user')
 		# Check if user exists with that email
 		user = User.query.filter_by(email=email).first()
 		if user is None:
@@ -64,7 +64,7 @@ class TravelPackageService:
 	@staticmethod
 	def delete_package(package_id):
 		# Get current user email
-		email = session.get('email')
+		email = session.get('user')
 		# Check if user exists with that email
 		user = User.query.filter_by(email=email).first()
 		if user is None:
