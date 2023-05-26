@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session
 from app.controllers.user_controller import UserController
 
 user_routes = Blueprint('user_routes', __name__, url_prefix='/api/user')
@@ -16,4 +16,17 @@ def register():
 def login():
 	if request.method == 'POST' and request.is_json:
 		return user_controller.login(request)
+	return jsonify({'message': 'Invalid request'}), 400
+
+# User account route: /api/user/account (protected)
+@user_routes.route('/account', methods=['GET'])
+def account():
+	if request.method == 'GET':
+		# Get current user email
+		email = session.get('user')
+		# Check if user exists with that email
+		user = user_controller.get_user_by_email(email)
+		if user is None:
+			return jsonify({'message': 'Access denied. User not found.'}), 404
+		return jsonify({'message': 'This is your user account page ' + email}), 200
 	return jsonify({'message': 'Invalid request'}), 400
