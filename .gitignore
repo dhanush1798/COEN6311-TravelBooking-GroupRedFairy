@@ -1,0 +1,8 @@
+.venv/
+venv/
+*.pyc
+.idea/
+*.iml
+__pycache__/
+.env
+Config.py
