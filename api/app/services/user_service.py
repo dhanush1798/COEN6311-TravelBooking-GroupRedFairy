@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, session
 from app.models.user import User
 from app import db
 from bcrypt import hashpw, gensalt
@@ -24,7 +24,9 @@ class UserService:
 		# Check if the password matches
 		if not UserService.check_password(email, password):
 			return jsonify({'message': 'Invalid email or password'}), 400
-					
+		
+		#Store the user in the session
+		session['user'] = email			
 		# Return the user
 		return jsonify(UserService.get_user_by_email(email).serialize()), 200
 	
