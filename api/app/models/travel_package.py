@@ -3,13 +3,8 @@ Travel package class model
 """
 import enum
 from sqlalchemy import Column, String
-from sqlalchemy.types import Integer, Enum, DateTime, Text, Float
+from sqlalchemy.types import Integer, Enum, DateTime, Text, Float, Boolean
 from app.extensions import db
-
-class TravelPackageTypeEnum(enum.Enum):
-	standard = 'standard'
-	custom = 'custom'
-
 
 class TravelPackage(db.Model):
 	__tablename__ = 'travel_packages'
@@ -18,7 +13,7 @@ class TravelPackage(db.Model):
 	name = Column(String(120), nullable=False)
 	description = Column(Text, nullable=True)
 	total_price = Column(Float, nullable=False)
-	type = Column(Enum(TravelPackageTypeEnum), default='standard', nullable=False)
+	is_custom = Column(Boolean, nullable=False, default=False)
 	flights = db.relationship('Flight', backref='travel_package', lazy=True)
 	hotels = db.relationship('Hotel', backref='travel_package', lazy=True)
 	activities = db.relationship('Activity', backref='travel_package', lazy=True)
@@ -36,8 +31,8 @@ class TravelPackage(db.Model):
 	def get_total_price(self):
 		return self.total_price
 	
-	def get_type(self):
-		return self.type
+	def is_custom(self):
+		return self.is_custom
 
 	def get_flights(self):
 		return self.flights
