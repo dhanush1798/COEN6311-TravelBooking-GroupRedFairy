@@ -17,6 +17,7 @@ class User(db.Model):
 	id = Column(Integer, primary_key=True)
 	email = Column(String(120), unique=True, nullable=False)
 	password = Column(String(120), nullable=False)
+	password_reset_token = Column(String(120), nullable=True)
 	first_name = Column(String(120), nullable=False)
 	last_name = Column(String(120), nullable=False)
 	dob = Column(Date, nullable=True)
@@ -35,6 +36,9 @@ class User(db.Model):
 	def get_password(self):
 		return self.password
 	
+	def get_password_reset_token(self):
+		return self.password_reset_token
+	
 	def get_first_name(self):
 		return self.first_name
 	
@@ -45,7 +49,7 @@ class User(db.Model):
 		return self.first_name + ' ' + self.last_name
 	
 	def get_dob(self):
-		return self.dob
+		return str(self.dob)
 	
 	def get_city(self):
 		return self.city

@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_migrate import Migrate
 from app.extensions import db
 from app.routes import user_routes
 from config import Config
@@ -10,6 +11,7 @@ app.config['SECRET_KEY'] = Config.SECRET_KEY
 
 # Register extensions
 db.init_app(app)
+migrate = Migrate(app, db)
 # Create the database tables if they don't exist
 with app.app_context():
 	db.create_all()

@@ -30,3 +30,17 @@ def account():
 			return jsonify({'message': 'Access denied. User not found.'}), 404
 		return jsonify({'message': 'This is your user account page ' + email}), 200
 	return jsonify({'message': 'Invalid request'}), 400
+
+# User account route: /api/user/forgot-password
+@user_routes.route('/forgot-password', methods=['POST'])
+def forgot_password():
+	if request.method == 'POST' and request.is_json:
+		return user_controller.reset_password(request)
+	return jsonify({'message': 'Invalid request'}), 400
+
+# User account route: /api/user/reset-password
+@user_routes.route('/reset-password', methods=['POST'])
+def reset_password():
+	if request.method == 'POST' and request.is_json:
+		return user_controller.reset_pasword(request)
+	return jsonify({'message': 'Invalid request'}), 400	
