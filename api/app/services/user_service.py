@@ -2,6 +2,8 @@ from flask import jsonify, session
 from app.models.user import User
 from app import db
 from bcrypt import hashpw, gensalt
+from app.utils.email import send_password_reset_email
+import uuid
 
 class UserService:
 	@staticmethod
@@ -43,3 +45,34 @@ class UserService:
 	@staticmethod
 	def get_user_by_email(email):
 		return User.query.filter_by(email=email).first()
+	
+	@staticmethod
+	def send_password_reset_email(user):
+		# Generate token
+		token = uuid.uuid4().hex
+		# Set token in user
+		user.password_reset_token = token
+		db.session.commit()
+		# Send email to user with password reset link
+		email_sent = send_password_reset_email(user, token)
+		if email_sent:
+			return jsonify({'message': 'Email sent successfully.'}), 200
+		else:
+			return jsonify({'message': 'Email could not be sent.'}), 500
+		
+	@staticmethod
+	def reset_password(token, email, password):
+		user = UserService.get_user_by_email(email)
+		if user and user.get_password_reset_token() == token:
+			# Hash the password
+			password = hashpw(password.encode('utf-8'), gensalt())
+			# Set the new password
+			user.password = password
+			# Set the password reset token to None
+			user.password_reset_token = None
+			db.session.commit()
+			return jsonify({'message': 'Password reset successfully.'}), 200
+		else:
+			return jsonify({'message': 'Invalid token.'}), 400
+
+			

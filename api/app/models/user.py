@@ -3,7 +3,7 @@ User class model
 """
 import enum
 from sqlalchemy import Column, String
-from sqlalchemy.types import Integer, Enum, DateTime
+from sqlalchemy.types import Integer, Enum, DateTime, Date
 from app.extensions import db
 
 class UserRoleEnum(enum.Enum):
@@ -17,8 +17,10 @@ class User(db.Model):
 	id = Column(Integer, primary_key=True)
 	email = Column(String(120), unique=True, nullable=False)
 	password = Column(String(120), nullable=False)
+	password_reset_token = Column(String(120), nullable=True)
 	first_name = Column(String(120), nullable=False)
 	last_name = Column(String(120), nullable=False)
+	dob = Column(Date, nullable=True)
 	city = Column(String(120), nullable=True)
 	state = Column(String(120), nullable=True)
 	country = Column(String(120), nullable=True)
@@ -34,6 +36,9 @@ class User(db.Model):
 	def get_password(self):
 		return self.password
 	
+	def get_password_reset_token(self):
+		return self.password_reset_token
+	
 	def get_first_name(self):
 		return self.first_name
 	
@@ -42,6 +47,9 @@ class User(db.Model):
 	
 	def get_name(self):
 		return self.first_name + ' ' + self.last_name
+	
+	def get_dob(self):
+		return str(self.dob)
 	
 	def get_city(self):
 		return self.city

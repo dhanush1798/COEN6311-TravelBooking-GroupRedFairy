@@ -1,4 +1,10 @@
+import os
 class Config:
-	DEBUG = True
-	SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
-	SQLALCHEMY_TRACK_MODIFICATIONS = False
+	DEBUG = os.environ.get('DEBUG')
+	SECRET_KEY = os.environ.get('SECRET_KEY')
+	SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+	SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
+	FRONTEND_URL = os.environ.get('FRONTEND_URL')
+	AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+	AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+	AWS_SES_SENDER_EMAIL = os.environ.get('AWS_SES_SENDER_EMAIL')
