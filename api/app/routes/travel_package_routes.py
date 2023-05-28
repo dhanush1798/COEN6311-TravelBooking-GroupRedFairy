@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.controllers.travel_package_controller import TravelPackageController
+from controllers.travel_package_controller import TravelPackageController
 
 package_routes = Blueprint('travel_package_routes', __name__, url_prefix='/api/package')
 travel_package_controller = TravelPackageController()

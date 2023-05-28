@@ -1,6 +1,6 @@
 from flask import jsonify, session
-from app.models.user import User
-from app.models.travel_package import TravelPackage
+from models.user import User
+from models.travel_package import TravelPackage
 from app import db
 
 class TravelPackageService:

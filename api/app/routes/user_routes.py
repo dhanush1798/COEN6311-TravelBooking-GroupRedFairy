@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, session
-from app.controllers.user_controller import UserController
+from controllers.user_controller import UserController
 
 user_routes = Blueprint('user_routes', __name__, url_prefix='/api/user')
 user_controller = UserController()

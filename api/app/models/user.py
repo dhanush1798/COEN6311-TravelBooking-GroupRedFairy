@@ -4,7 +4,7 @@ User class model
 import enum
 from sqlalchemy import Column, String
 from sqlalchemy.types import Integer, Enum, DateTime, Date
-from app.extensions import db
+from extensions import db
 
 class UserRoleEnum(enum.Enum):
 	admin = 'admin'
