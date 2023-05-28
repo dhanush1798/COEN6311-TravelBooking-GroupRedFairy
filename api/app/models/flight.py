@@ -4,7 +4,7 @@ Hotel model
 import enum
 from sqlalchemy import Column, String
 from sqlalchemy.types import Integer, Enum, DateTime, Text, Float
-from app.extensions import db
+from extensions import db
 
 class FlightSeatClassEnum(enum.Enum):
 	economy = 'economy'

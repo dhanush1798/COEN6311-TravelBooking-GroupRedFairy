@@ -1,6 +1,6 @@
 from flask import jsonify
-from app.services.user_service import UserService
-from app.utils.sanitize import sanitize_input
+from services.user_service import UserService
+from utils.sanitize import sanitize_input
 from bcrypt import hashpw, gensalt
 
 class UserController:
