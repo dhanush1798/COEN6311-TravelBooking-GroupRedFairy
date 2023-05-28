@@ -1,6 +1,6 @@
 from flask import jsonify
-from app.services.travel_package_service import TravelPackageService
-from app.utils.sanitize import sanitize_input
+from services.travel_package_service import TravelPackageService
+from utils.sanitize import sanitize_input
 
 class TravelPackageController:
 	def __init__(self):

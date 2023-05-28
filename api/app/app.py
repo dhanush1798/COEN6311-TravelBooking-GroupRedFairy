@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate
-from app.extensions import db
-from app.routes import user_routes
+from extensions import db
+from routes import user_routes
 from config import Config
 
 app = Flask(__name__)

@@ -3,7 +3,7 @@ Hotel model
 """
 from sqlalchemy import Column, String
 from sqlalchemy.types import Integer, Enum, DateTime, Text, Float
-from app.extensions import db
+from extensions import db
 
 class Hotel(db.Model):
 	__tablename__ = 'hotels'
