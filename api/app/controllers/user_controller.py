@@ -75,7 +75,7 @@ class UserController:
 		except Exception as e:
 			return jsonify({'message': str(e)}), 400
 		
-	def reset_password(self, request):
+	def send_reset_password_email(self, request):
 		try:
 			data = request.get_json()
 			email = data.get('email')
@@ -103,7 +103,7 @@ class UserController:
 		except Exception as e:
 			return jsonify({'message': str(e)}), 400
 		
-	def reset_pasword(self, request):
+	def reset_password(self, request):
 		try:
 			data = request.get_json()
 			token = data.get('token')
