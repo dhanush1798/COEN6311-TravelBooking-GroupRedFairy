@@ -2,15 +2,15 @@ from flask import Flask
 from flask_migrate import Migrate
 from extensions import db
 from routes import user_routes
-from config import Config
 from dotenv import load_dotenv
+from os import getenv
 
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = Config.SQLALCHEMY_TRACK_MODIFICATIONS
-app.config['SECRET_KEY'] = Config.SECRET_KEY
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv('SQLALCHEMY_DATABASE_URI')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
+app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 
 # Register extensions
 db.init_app(app)
