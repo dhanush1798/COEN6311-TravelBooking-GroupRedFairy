@@ -9,11 +9,16 @@ const Header = () => {
 			<nav className="flex items-center justify-between">
 				<a href="/" className="text-white text-lg font-semibold">ConcordiaTravel</a>
 				<ul className="flex space-x-4">
-					<li><Link href="/register" className="text-white hover:text-blue-200">Register</Link></li>
 					{user ? (
-						<li><a onClick={logout} className="text-white hover:text-blue-200">Logout</a></li>
+						<>
+							<li><Link href="/user/account" className="text-white hover:text-blue-200">Account</Link></li>
+							<li><a onClick={logout} className="text-white hover:text-blue-200">Logout</a></li>
+						</>
 					) : (
-						<li><Link href="/login" className="text-white hover:text-blue-200">Login</Link></li>
+						<>
+							<li><Link href="/register" className="text-white hover:text-blue-200">Register</Link></li>
+							<li><Link href="/login" className="text-white hover:text-blue-200">Login</Link></li>
+						</>
 					)}
 				</ul>
 			</nav>
