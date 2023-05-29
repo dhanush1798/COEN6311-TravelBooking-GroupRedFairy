@@ -3,7 +3,48 @@ const CreateAccount = () => {
   return (
     <>
       <style jsx>{`
+
+        body {
+          background-color: #f2f2f2;
+          font-family: "Times New Roman", sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          flex-direction: column;
+        }
+
+        h2 {
+          text-align: center;
+          margin-top: 0;
+        }
+
+        form {
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #ffffff;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+
+        .form-row {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        label {
+          flex-basis: 48%;
+        }
+
         input[type="text"],
         input[type="password"],
         input[type="date"],
@@ -35,6 +76,7 @@ const CreateAccount = () => {
         p {
           text-align: center;
         }
+        
       `}</style>
 
       <div className="container">
