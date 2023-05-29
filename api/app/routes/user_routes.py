@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, session
-from app.controllers.user_controller import UserController
+from controllers.user_controller import UserController
 
 user_routes = Blueprint('user_routes', __name__, url_prefix='/api/user')
 user_controller = UserController()
@@ -44,3 +44,12 @@ def reset_password():
 	if request.method == 'POST' and request.is_json:
 		return user_controller.reset_pasword(request)
 	return jsonify({'message': 'Invalid request'}), 400	
+
+# User account route: /api/user/logout
+@user_routes.route('/logout', methods=['GET'])
+def logout():
+	if request.method == 'GET':
+		# Clear session
+		session.clear()
+		return jsonify({'message': 'You have been logged out'}), 200
+	return jsonify({'message': 'Invalid request'}), 400

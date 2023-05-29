@@ -1,8 +1,8 @@
 from flask import jsonify, session
-from app.models.user import User
+from models.user import User
 from app import db
 from bcrypt import hashpw, gensalt
-from app.utils.email import send_password_reset_email
+from utils.email import send_password_reset_email
 import uuid
 
 class UserService:

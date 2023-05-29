@@ -4,7 +4,7 @@ Travel package class model
 import enum
 from sqlalchemy import Column, String
 from sqlalchemy.types import Integer, Enum, DateTime, Text, Float, Boolean
-from app.extensions import db
+from extensions import db
 
 class TravelPackage(db.Model):
 	__tablename__ = 'travel_packages'

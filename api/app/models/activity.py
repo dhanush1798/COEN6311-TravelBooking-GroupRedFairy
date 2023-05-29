@@ -3,7 +3,7 @@ Activity model
 """
 from sqlalchemy import Column, String
 from sqlalchemy.types import Integer, Enum, DateTime, Text, Float
-from app.extensions import db
+from extensions import db
 
 class Activity(db.Model):
 	__tablename__ = 'activities'

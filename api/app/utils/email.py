@@ -1,11 +1,14 @@
 import boto3
 from botocore.exceptions import ClientError
-from config import Config
+from dotenv import load_dotenv
+from os import getenv
+
+load_dotenv()
 
 def send_password_reset_email(user, token):
 	# Create SES client
-	ses = boto3.client('ses', region_name='us-east-2', aws_access_key_id=Config.AWS_ACCESS_KEY_ID, aws_secret_access_key=Config.AWS_SECRET_ACCESS_KEY)
-	sender = 'Concordia Travel Support <{}>'.format(Config.AWS_SES_SENDER_EMAIL)
+	ses = boto3.client('ses', region_name='us-east-2', aws_access_key_id=getenv('SES_ACCESS_KEY_ID'), aws_secret_access_key=getenv('SES_SECRET_ACCESS_KEY'))
+	sender = 'Concordia Travel Support <{}>'.format(getenv('SES_SENDER_EMAIL'))
 	recipients = [user.get_email()]
 	subject = 'Password Reset Link for Concordia Travel'
 	email_body = """
@@ -15,7 +18,7 @@ def send_password_reset_email(user, token):
 		<p>Or copy and paste the following link in your browser:</p>
 		<p>{}/reset-password/{}</p>
 		<p>Thank you for traveling with Concordia Travel!</p>
-	""".format(Config.FRONTEND_URL, token, Config.FRONTEND_URL, token)
+	""".format(getenv('FRONTEND_URL'), token, getenv('FRONTEND_URL'), token)
 	# Try to send email
 	try:
 		response = ses.send_email(
