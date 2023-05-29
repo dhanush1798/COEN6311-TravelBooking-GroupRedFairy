@@ -3,6 +3,9 @@ from flask_migrate import Migrate
 from extensions import db
 from routes import user_routes
 from config import Config
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
