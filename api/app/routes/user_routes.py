@@ -40,7 +40,7 @@ def account():
 @cross_origin()
 def forgot_password():
 	if request.method == 'POST' and request.is_json:
-		return user_controller.reset_password(request)
+		return user_controller.send_reset_password_email(request)
 	return jsonify({'message': 'Invalid request'}), 400
 
 # User account route: /api/user/reset-password
@@ -48,7 +48,7 @@ def forgot_password():
 @cross_origin()
 def reset_password():
 	if request.method == 'POST' and request.is_json:
-		return user_controller.reset_pasword(request)
+		return user_controller.reset_password(request)
 	return jsonify({'message': 'Invalid request'}), 400	
 
 # User account route: /api/user/logout
@@ -59,4 +59,12 @@ def logout():
 		# Clear session
 		session.clear()
 		return jsonify({'message': 'You have been logged out'}), 200
+	return jsonify({'message': 'Invalid request'}), 400
+
+# User account route: /api/user/session
+@user_routes.route('/session', methods=['GET'])
+@cross_origin()
+def user_session():
+	if request.method == 'GET':
+		return user_controller.get_user_session(request)
 	return jsonify({'message': 'Invalid request'}), 400
