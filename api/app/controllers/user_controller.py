@@ -66,6 +66,15 @@ class UserController:
 		except Exception as e:
 			return jsonify({'message': str(e)}), 400
 		
+	def get_user_session(self, request):
+		try:
+			# Get user email from GET request
+			email = request.args.get('email')
+			user = self.user_service.get_user_session(email)
+			return jsonify(user), 200
+		except Exception as e:
+			return jsonify({'message': str(e)}), 400
+		
 	def reset_password(self, request):
 		try:
 			data = request.get_json()

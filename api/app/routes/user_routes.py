@@ -60,3 +60,11 @@ def logout():
 		session.clear()
 		return jsonify({'message': 'You have been logged out'}), 200
 	return jsonify({'message': 'Invalid request'}), 400
+
+# User account route: /api/user/session
+@user_routes.route('/session', methods=['GET'])
+@cross_origin()
+def user_session():
+	if request.method == 'GET':
+		return user_controller.get_user_session(request)
+	return jsonify({'message': 'Invalid request'}), 400

@@ -47,6 +47,13 @@ class UserService:
 		return User.query.filter_by(email=email).first()
 	
 	@staticmethod
+	def get_user_session(email):
+		user = UserService.get_user_by_email(email)
+		if user and session.get('user') == email:
+			return user.serialize()
+		return None
+	
+	@staticmethod
 	def send_password_reset_email(user):
 		# Generate token
 		token = uuid.uuid4().hex
