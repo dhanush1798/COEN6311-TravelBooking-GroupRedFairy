@@ -3,8 +3,38 @@ const CreateAccount = () => {
   return (
     <>
       <style jsx>{`
-
         
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"] {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+          width: 100%;
+          padding: 10px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        a {
+          text-decoration: none;
+          color: #4CAF50;
+        }
+
+        p {
+          text-align: center;
+        }
       `}</style>
 
       <div className="container">
