@@ -57,6 +57,10 @@
       color: #333;
     }
 
+    h3 {
+      text-decoration: underline;
+    }
+
     .package {
       margin-bottom: 20px;
       padding: 20px;
@@ -70,10 +74,31 @@
     }
 
     .package p {
-      margin-bottom: 0;
+      margin-bottom: 5px;
+      color: #666;
     }
 
-    /* Add your other custom CSS styles here */
+    .package .book-now {
+      float: right;
+      margin-top: -20px;
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -95,17 +120,35 @@
 
     <div class="package">
       <h3>Package 1</h3>
-      <p>Details about Package 1.</p>
+      <p>City: Paris, France</p>
+      <p>Flight: Air France</p>
+      <p>Hotel: Novotel Paris Les Halles</p>
+      <p>Duration: 7 days, 6 nights</p>
+      <p>Activities: Sightseeing, guided tours</p>
+      <p>Price: $2000</p>
+      <button class="book-now">Book Now</button>
     </div>
 
     <div class="package">
       <h3>Package 2</h3>
-      <p>Details about Package 2.</p>
+      <p>City: Tokyo, Japan</p>
+      <p>Flight: Japan Airlines</p>
+      <p>Hotel: Park Hyatt Tokyo</p>
+      <p>Duration: 10 days, 9 nights</p>
+      <p>Activities: Cultural experiences, local cuisine</p>
+      <p>Price: $3000</p>
+      <button class="book-now">Book Now</button>
     </div>
 
     <div class="package">
       <h3>Package 3</h3>
-      <p>Details about Package 3.</p>
+      <p>City: New York City, USA</p>
+      <p>Flight: Delta Airlines</p>
+      <p>Hotel: Westgate New York Grand Central</p>
+      <p>Duration: 5 days, 4 nights</p>
+      <p>Activities: Broadway shows, city tours</p>
+      <p>Price: $1500</p>
+      <button class="book-now">Book Now</button>
     </div>
   </main>
 
