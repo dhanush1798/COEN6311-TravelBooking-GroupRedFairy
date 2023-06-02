@@ -13,12 +13,22 @@
     header {
       background-color: #333;
       color: #fff;
-      padding: 10px;
+      padding: 0px;
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
     }
 
     header h1 {
       margin: 0;
       padding: 10px;
+      display: flex;
+      align-items: center;
     }
 
     nav {
@@ -103,14 +113,18 @@
 </head>
 <body>
   <header>
-    <h1>Concordia Travel</h1>
+    <h1>
+    <a href="/home.html">
+        <img src="/logo.png" alt="Concordia Travel Logo">
+    </a>
+    Concordia Travel</h1>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Packages</a></li>
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="/packages.html">Packages</a></li>
         <li><a href="#">Create Your Own</a></li>
-        <li><a href="#">Agent Login</a></li>
-        <li><a href="#">User Login</a></li>
+        <li><a href="/agent_login.html">Agent Login</a></li>
+        <li><a href="/user_login.html">User Login</a></li>
       </ul>
     </nav>
   </header>
