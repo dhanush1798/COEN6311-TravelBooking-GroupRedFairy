@@ -6,7 +6,7 @@ const Header = () => {
 
 	return (
 		<header className="bg-blue-500 py-4 px-6">
-			<nav className="flex items-center justify-between">
+			<nav className="flex items-center justify-between max-w-screen-lg mx-auto">
 				<a href="/" className="text-white text-lg font-semibold">ConcordiaTravel</a>
 				<ul className="flex space-x-4">
 					{user ? (

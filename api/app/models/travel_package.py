@@ -12,6 +12,8 @@ class TravelPackage(db.Model):
 	id = Column(Integer, primary_key=True)
 	name = Column(String(120), nullable=False)
 	description = Column(Text, nullable=True)
+	city = Column(String(120), nullable=True)
+	image = Column(String(255), nullable=True)
 	total_price = Column(Float, nullable=False)
 	is_custom = Column(Boolean, nullable=False, default=False)
 	flights = db.relationship('Flight', backref='travel_package', lazy=True)
@@ -27,6 +29,9 @@ class TravelPackage(db.Model):
 	
 	def get_description(self):
 		return self.description
+	
+	def get_image(self):
+		return self.image
 	
 	def get_total_price(self):
 		return self.total_price
@@ -51,6 +56,7 @@ class TravelPackage(db.Model):
 			'id': self.get_id(),
 			'name': self.get_name(),
 			'description': self.get_description(),
+			'image': self.get_image(),
 			'total_price': self.get_total_price(),
 			'type': self.get_type(),
 			'created_at': self.get_created_at()
