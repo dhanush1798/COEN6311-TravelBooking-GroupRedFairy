@@ -3,22 +3,38 @@
 <head>
   <title>Concordia Travel</title>
   <style>
-    body {
-      font-family: "Times New Roman", sans-serif;
-      background-color: #f2f2f2;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Times New Roman", sans-serif;
+      background-color: #f2f2f2;
     }
 
     header {
       background-color: #333;
       color: #fff;
-      padding: 10px;
+      padding: 0px;
     }
 
     header h1 {
       margin: 0;
       padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      margin-right: 10px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     nav {
@@ -48,15 +64,35 @@
       color: #ffcc00;
       transform: scale(1.1);
     }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Concordia Travel</h1>
+    <h1>
+      <a href="/home.html">
+        <img src="/logo.png" alt="Concordia Travel Logo">
+      </a>
+      Concordia Travel
+    </h1>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Packages</a></li>
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="/packages.html">Packages</a></li>
         <li><a href="#">Create Your Own</a></li>
         <li><a href="/agent_login.html">Agent Login</a></li>
         <li><a href="/user_login.html">User Login</a></li>
