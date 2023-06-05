@@ -8,7 +8,7 @@ const Flights = ({ setOpenModal, setFlight, city }) => {
 		destination: '',
 		departureDate: '',
 		returnDate: '',
-		cabinClass: '',
+		cabinClass: 'economy',
 		adults: 1,
 		children: 0,		
 	})

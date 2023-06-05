@@ -8,7 +8,6 @@ export default async function handler(req, res) {
 		origin: 'YUL',
 	}
 	const queryString = Object.keys(query).map((key) => key + '=' + query[key]).join('&')
-	console.log(queryString)
 	// Get flights from rapidapi
 	const data = await fetch(`https://skyscanner44.p.rapidapi.com/search-extended?${queryString}`, {
 		method: 'GET',
@@ -19,6 +18,5 @@ export default async function handler(req, res) {
 		}
 	})
 	const json = await data.json()
-	console.log(json)
 	res.status(200).json(json)
 }

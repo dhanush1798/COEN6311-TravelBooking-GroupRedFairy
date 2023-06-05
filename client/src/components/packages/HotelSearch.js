@@ -6,12 +6,21 @@ const HotelSearch = ({ search, setSearch, getHotels, city }) => {
 	const getLocations = async (e) => {
 		const res = await fetch(`/api/packages/locations?city=${city}`)
 		const data = await res.json()
-		setLocations(data)
-		console.log(data)
+		const locs = data?.data.map(location => {
+			// Extract geoid from geoId, example: "loc;155019;g155019". Convert to int.
+			if (!location?.geoId) return null
+			const geoId = parseInt(location?.geoId?.split(';')[1])
+			// Remove tags from title, example: <b>San Francisco</b>
+			const title = `${location?.title?.replace(/(<([^>]+)>)/gi, '')}, ${location?.secondaryText}`
+			return { geoId, title }
+		})
+		// Remove null values
+		setLocations(locs?.filter(Boolean))
+		// Set search geoId to first geoId
+		setSearch({ ...search, geoId: locs[0]?.geoId })
 	}
 
 	useEffect(() => {
-		console.log(city, locations)
 		if (city && locations?.length === 0) {
 			getLocations()
 		}
@@ -32,36 +41,36 @@ const HotelSearch = ({ search, setSearch, getHotels, city }) => {
 						onChange={(e) => setSearch({ ...search, locationId: e.target.value })}
 						className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500"
 					>
-						{locations && locations.map((location) => (
-							<option key={location.entity_id} value={location.entity_id} defaultChecked={true}>
-								{location.entity_name}
+						{locations && locations.length && locations.map((location, index) => (
+							<option key={location?.geoId} value={location?.geoId} defaultChecked={index === 0}>
+								{location.title}
 							</option>
 						))}
 					</select>
 				</div>
 				<div className="col-span-2 sm:col-span-2">
-					<label htmlFor="checkin" className="block mb-1">
+					<label htmlFor="checkIn" className="block mb-1">
 						Check in date
 					</label>
 					<input
 						type="date"
-						id="checkin"
-						name="checkin"
-						value={search.checkin}
-						onChange={(e) => setSearch({ ...search, checkin: e.target.value })}
+						id="checkIn"
+						name="checkIn"
+						value={search.checkIn}
+						onChange={(e) => setSearch({ ...search, checkIn: e.target.value })}
 						className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500"
 					/>
 				</div>
 				<div className="col-span-2 sm:col-span-2">
-					<label htmlFor="checkout" className="block mb-1">
-						Checkout date
+					<label htmlFor="checkOut" className="block mb-1">
+						checkOut date
 					</label>
 					<input
 						type="date"
-						id="checkout"
-						name="checkout"
-						value={search.checkout}
-						onChange={(e) => setSearch({ ...search, checkout: e.target.value })}
+						id="checkOut"
+						name="checkOut"
+						value={search.checkOut}
+						onChange={(e) => setSearch({ ...search, checkOut: e.target.value })}
 						className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500"
 					/>
 				</div>

@@ -7,7 +7,6 @@ const Packages = () => {
 
 	const search = (e) => {
 		e.preventDefault()
-		console.log(searchTerm)
 	}
 
 	const packages = [

@@ -1,68 +1,45 @@
-const HotelsList = ({ hotels, setHotel, setOpenModal }) => {
-	console.log('hotels', hotels)
-
-	const dateTimeToTimeAMPM = (dateTime) => {
-		const date = new Date(dateTime)
-		const hours = date.getHours()
-		const minutes = date.getMinutes()
-		const ampm = hours >= 12 ? 'PM' : 'AM'
-		const formattedHours = hours % 12 ? hours % 12 : 12
-		const formattedMinutes = minutes < 10 ? '0' + minutes : minutes
-		return formattedHours + ':' + formattedMinutes + ' ' + ampm
-	}
+const HotelsList = ({ hotels, setHotel, setOpenModal, searchData }) => {
 
 	const selectHotel = (hotel) => {
-		// Remove unnecessary data from hotel
-		const selectedHotel = {
-			id: hotel.id,
-			legs: hotel.legs.map((leg) => ({
-				id: leg.id,
-				origin: leg.origin.displayCode,
-				destination: leg.destination.displayCode,
-				departure: leg.departure,
-				arrival: leg.arrival,
-				duration: leg.duration,
-				stops: leg.stops,
-				carriers: leg.carriers?.marketing?.map((carrier) => carrier.name).join(', '),
-			})),
-			price: hotel.pricing_options[0].price.amount,
-			booking_url: hotel.pricing_options[0].url,
+		// Append check in and check out from searchData to hotel
+		const hotelData = {
+			...hotel,
+			checkIn: searchData?.checkIn,
+			checkOut: searchData?.checkOut
 		}
-		setHotel(selectedHotel)
+		setHotel(hotelData)
 		setOpenModal(false)
 	}
 
 	return (
 		<>
+			{loading && <p className="mb-8 text-center">Loading...</p>}
 			{hotels && hotels.length ? 
 				<ul className="overflow-auto h-48 mb-4">
 					{hotels.map((hotel) => (
 						<li key={hotel.id} className="flex items-center justify-between mb-2 py-2 border-t border-blue-500">
+							{/* Hotel image */}
+							<div className="flex-none w-24 h-16 mr-4">
+								<img
+									className="w-full h-full object-cover"
+									src={hotel?.image}
+									alt={hotel?.name}
+								/>
+							</div>
 							<div className="flex-1">
 								<h4 className="font-semibold">
-									{hotel?.legs?.[0]?.carriers?.marketing.map((carrier) => carrier.name).join(', ')}
+									{hotel?.name}
 								</h4>
-								<div className="hotel-legs">
-									{hotel.legs.map((leg) => (
-										<div key={leg.id}>
-											<div className="flex items-space-between items-center mb-4">
-												<div className="flex-1">
-													<h5 className="font-semibold text-xl">{leg?.origin?.displayCode}</h5>
-													<span className="flex-1">{dateTimeToTimeAMPM(leg?.departure)}</span>
-												</div>
-												<span className="flex-1">to</span>
-												<div className="flex-1">
-													<h5 className="font-semibold text-xl">{leg?.destination?.displayCode}</h5>
-													<span className="flex-1">{dateTimeToTimeAMPM(leg?.arrival)}</span>
-												</div>
-											</div>
-										</div>
-									))}
+								{/* Hotel rating */}
+								<div className="flex items-center">
+									<span className="ml-2 text-gray-600">
+										{`Rating: ${hotel?.rating}`}
+									</span>
 								</div>
 							</div>
 							<div className="flex flex-col">
 								<h5 className="font-semibold text-xl mb-2">
-									{`CAD ${hotel?.pricing_options?.[0]?.price?.amount?.toLocaleString()}`}
+									{`CAD ${hotel?.price?.toLocaleString()}`}
 								</h5>
 								<button 
 									className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"

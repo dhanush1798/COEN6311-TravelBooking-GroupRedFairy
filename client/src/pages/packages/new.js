@@ -30,7 +30,6 @@ const NewPackage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		handleImageSubmit()
-		console.log(packageData)
 	}
 
 	const handleImageSubmit = async (e) => {
@@ -57,7 +56,6 @@ const NewPackage = () => {
 			const response = await s3.send(command)
 			// Get image URL
 			const imageUrl = `https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/packages/${fileName}`
-			console.log(imageUrl)
 		}
 		catch (error) {
 			console.error('Error at handleImageSubmit in package creation:', error)

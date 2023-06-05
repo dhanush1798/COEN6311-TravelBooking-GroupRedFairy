@@ -64,9 +64,9 @@ const NewPackageForm = ({ packageData, setPackageData, handleSubmit, handleChang
 				<div className="flex items-justify-start mb-2">
 					{flight ?
 						(
-							<div className="flex justify-start">
-								<div className>
-									<p className="mb-2">{`${flight.legs?.[0].origin} to ${flight.legs?.[0].destination} and ${flight.legs?.[1].origin} to ${flight.legs?.[1].destination}`}</p>
+							<div className="flex justify-start w-full items-start">
+								<div className="flex-1">
+									<p className="mb-2 font-bold">{`${flight.legs?.[0].origin} to ${flight.legs?.[0].destination} and ${flight.legs?.[1].origin} to ${flight.legs?.[1].destination}`}</p>
 									<p className="mb-2">{`${formatDate(flight.legs?.[0].departure)} to ${formatDate(flight.legs?.[1].arrival)}`}</p>
 								</div>
 								{/* Button to remove flight */}
@@ -85,14 +85,14 @@ const NewPackageForm = ({ packageData, setPackageData, handleSubmit, handleChang
 					Hotel
 				</label>
 				<div className="flex items-justify-start mb-2">
-					{flight ?
+					{hotel ?
 						(
-							<div className="flex justify-start">
-								<div className>
-									<p className="mb-2">{`${flight.legs?.[0].origin} to ${flight.legs?.[0].destination} and ${flight.legs?.[1].origin} to ${flight.legs?.[1].destination}`}</p>
-									<p className="mb-2">{`${formatDate(flight.legs?.[0].departure)} to ${formatDate(flight.legs?.[1].arrival)}`}</p>
+							<div className="flex justify-start w-full items-start">
+								<div className="flex-1">
+									<p className="mb-2 font-bold">{hotel.name}</p>
+									<p className="mb-2">{`${formatDate(hotel.checkIn)} to ${formatDate(hotel.checkOut)}`}</p>
 								</div>
-								{/* Button to remove flight */}
+								{/* Button to remove hotel */}
 								<button type="button" onClick={() => setHotel(null)} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove Hotel</button>
 							</div>
 						) :
