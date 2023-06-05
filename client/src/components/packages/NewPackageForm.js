@@ -1,6 +1,11 @@
 import { formatDate } from '@/utils/date'
 
-const NewPackageForm = ({ packageData, setPackageData, handleSubmit, handleChange, setImage, flight, setFlight, hotel, setHotel, setOpenFlightsModal, setOpenHotelsModal }) => {
+const NewPackageForm = ({ packageData, setPackageData, handleSubmit, handleChange, setImage, flight, setFlight, hotel, setHotel, setOpenFlightsModal, setOpenHotelsModal, setOpenActivitiesModal, activities, setActivities }) => {
+	
+	const removeActivity = (activity) => {
+		setActivities((prevState) => prevState.filter((a) => a.id !== activity.id))
+	}
+
 	return (
 		<form onSubmit={handleSubmit}>
 			<div className="mb-4">
@@ -100,6 +105,30 @@ const NewPackageForm = ({ packageData, setPackageData, handleSubmit, handleChang
 							<button type="button" onClick={() => setOpenHotelsModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Hotel</button>
 						)
 					}
+				</div>
+			</div>
+
+			<div className="mb-4">
+				<label htmlFor="image" className="block mb-1">
+					Activities
+				</label>
+				<div className="flex items-justify-start flex-col mb-2 items-start">
+					{activities.length ? (
+						activities.map(activity => (
+							<div key={activity.id} className="flex justify-start w-full items-start mb-2">
+								<div className="flex-1 mr-2">
+									<p className="mb-2 font-bold">{activity.name}</p>
+									<p className="mb-2">{formatDate(activity.date)}</p>
+								</div>
+								{/* Button to remove activity */}
+								<button type="button" onClick={() => removeActivity(activity)} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove Activity</button>
+							</div>
+						))
+					) : (
+						<></>
+					)}
+					{/* Button to add activity */}
+					<button type="button" onClick={() => setOpenActivitiesModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Activity</button>
 				</div>
 			</div>
 				

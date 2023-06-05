@@ -1,0 +1,93 @@
+[
+	{
+	  "id": "d87c8304-6e7b-4e2f-b527-609f1d3dab5f",
+	  "name": "Guided Tour",
+	  "description": "Explore the main attractions with a knowledgeable guide.",
+	  "price": 25.0
+	},
+	{
+	  "id": "d0c7c6d0-52b1-4f16-9d55-8c81932f56f8",
+	  "name": "Boat Ride",
+	  "description": "Enjoy a scenic boat ride along the coastline.",
+	  "price": 35.0
+	},
+	{
+	  "id": "12f9343a-3b61-433e-8e2b-1f7a8d649b75",
+	  "name": "Hiking Adventure",
+	  "description": "Embark on a thrilling hike through breathtaking trails.",
+	  "price": 15.0
+	},
+	{
+	  "id": "e6a05e47-9327-414a-9b1c-6b343ec4da9a",
+	  "name": "Cultural Show",
+	  "description": "Experience traditional music and dance performances.",
+	  "price": 20.0
+	},
+	{
+	  "id": "7188c24f-c1b7-45f2-9b4d-b161b4d07c3a",
+	  "name": "Snorkeling Excursion",
+	  "description": "Discover vibrant marine life in crystal-clear waters.",
+	  "price": 40.0
+	},
+	{
+	  "id": "de3e76ce-1c96-4963-993e-282051935aaf",
+	  "name": "Zip Line Adventure",
+	  "description": "Soar through the treetops on an exhilarating zip line.",
+	  "price": 30.0
+	},
+	{
+	  "id": "896bc4cd-1ab0-4d0d-8c9d-1d8af92ef4a5",
+	  "name": "City Bike Tour",
+	  "description": "Cycle through the city and explore its landmarks.",
+	  "price": 25.0
+	},
+	{
+	  "id": "d0eefcd0-52e3-4bc2-8c06-29e122cb3bb0",
+	  "name": "Scenic Helicopter Ride",
+	  "description": "Get a bird's-eye view of the stunning landscapes.",
+	  "price": 100.0
+	},
+	{
+	  "id": "25c90b20-eb9c-4d0b-ae5e-40f8e0cfd8fb",
+	  "name": "Food Tasting Tour",
+	  "description": "Indulge in local cuisine and culinary delights.",
+	  "price": 45.0
+	},
+	{
+	  "id": "9c4c2fe5-4e9e-4403-81ea-d134fd8762c7",
+	  "name": "Parasailing Experience",
+	  "description": "Float above the water and enjoy breathtaking views.",
+	  "price": 50.0
+	},
+	{
+	  "id": "bf503eb4-71a0-45af-afaa-95ad344b21af",
+	  "name": "Historical Walking Tour",
+	  "description": "Discover the rich history and architecture of the area.",
+	  "price": 20.0
+	},
+	{
+	  "id": "3e2c925b-8031-4be9-9e14-c8c96ed32c4a",
+	  "name": "Wine Tasting",
+	  "description": "Sample a variety of local wines at a vineyard.",
+	  "price": 35.0
+	},
+	{
+	  "id": "61cc78ae-cbc3-4cb3-aad3-c4b1a68db90d",
+	  "name": "Waterfall Expedition",
+	  "description": "Visit magnificent waterfalls hidden in the wilderness.",
+	  "price": 30.0
+	},
+	{
+	  "id": "8c67a2b0-6021-47b6-89e6-3af2024cb6c6",
+	  "name": "Sailing Adventure",
+	  "description": "Sail across the crystal-clear waters on a luxurious yacht.",
+	  "price": 80.0
+	},
+	{
+	  "id": "7d6fc42c-0982-4b14-90a6-c9d19a480d10",
+	  "name": "Wildlife Safari",
+	  "description": "Spot exotic wildlife on an exciting safari tour.",
+	  "price": 60.0
+	}
+  ]
+  

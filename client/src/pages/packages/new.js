@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/layout/Header'
 import Flights from '@/components/packages/Flights'
 import Hotels from '@/components/packages/Hotels'
+import Activities from '@/components/packages/Activities'
 import NewPackageForm from '@/components/packages/NewPackageForm'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 
@@ -18,6 +19,8 @@ const NewPackage = () => {
 	const [openFlightsModal, setOpenFlightsModal] = useState(false)
 	const [hotel, setHotel] = useState(null)
 	const [openHotelsModal, setOpenHotelsModal] = useState(false)
+	const [activities, setActivities] = useState([])
+	const [openActivitiesModal, setOpenActivitiesModal] = useState(false)
 
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target
@@ -80,6 +83,9 @@ const NewPackage = () => {
 							hotel={hotel}
 							setHotel={setHotel}
 							setOpenHotelsModal={setOpenHotelsModal}
+							activities={activities}
+							setActivities={setActivities}
+							setOpenActivitiesModal={setOpenActivitiesModal}
 						/>
 					</div>
 				</div>
@@ -88,6 +94,9 @@ const NewPackage = () => {
 				}
 				{openHotelsModal &&
 					<Hotels setOpenModal={setOpenHotelsModal} setHotel={setHotel} city={packageData?.city} />
+				}
+				{openActivitiesModal &&
+					<Activities setOpenModal={setOpenActivitiesModal} setActivities={setActivities} activities={activities} />
 				}
 			</main>
 		</>

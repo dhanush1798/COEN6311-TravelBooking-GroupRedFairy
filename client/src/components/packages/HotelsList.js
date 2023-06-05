@@ -1,4 +1,4 @@
-const HotelsList = ({ hotels, setHotel, setOpenModal, searchData }) => {
+const HotelsList = ({ hotels, setHotel, setOpenModal, searchData, loading }) => {
 
 	const selectHotel = (hotel) => {
 		// Append check in and check out from searchData to hotel
