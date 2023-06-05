@@ -10,8 +10,9 @@ export const dateTimeToTimeAMPM = (dateTime) => {
 
 export const formatDate = (datetime) => {
 	const date = new Date(datetime)
-	const day = date.getDate()
-	const month = date.toLocaleString('default', { month: 'short' })
-	const year = date.getFullYear()
+	const utcDate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())
+	const day = utcDate.getUTCDate()
+	const month = utcDate.toLocaleString('default', { month: 'short' })
+	const year = utcDate.getUTCFullYear()
 	return `${day} ${month} ${year}`
 }

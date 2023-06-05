@@ -7,6 +7,8 @@ const FlightSearch = ({ search, setSearch, getFlights, city }) => {
 		const res = await fetch(`/api/packages/airports?city=${city}`)
 		const data = await res.json()
 		setDestinations(data)
+		// Set search destination to first airport in list
+		setSearch({ ...search, destination: data[0]?.iata_code })
 	}
 
 	useEffect(() => {

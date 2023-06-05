@@ -5,20 +5,34 @@ import HotelSearch from './HotelSearch'
 const Hotels = ({ setOpenModal, setHotel, city }) => {
 	const [hotels, setHotels] = useState([])
 	const [search, setSearch] = useState({
-		locationId: '',
+		geoId: '',
 		adults: '',
 		rooms: '',
-		checkin: '',
-		checkout: '',
+		checkIn: '',
+		checkOut: '',
 	})
+	const [loading, setLoading] = useState(false)
 
 	const getHotels = async (e) => {
 		e.preventDefault()
+		setLoading(true)
 		// Convert search to query string
 		const queryString = Object.keys(search).map((key) => key + '=' + search[key]).join('&')
 		const res = await fetch(`/api/packages/hotels?${queryString}`)
-		const { itineraries: { results } } = await res.json()
-		setHotels(results)
+		const data = await res.json()
+		const hotels = data?.data?.data?.map(hotel => {
+			const id = parseInt(hotel?.id)
+			// Remove prefix number from hotel name, example: '1. Hotel Name'. Account for scenarios where there is no prefix number.
+			const name = hotel?.title?.split('. ')?.slice(1)?.join('. ') || hotel?.title
+			// Remove $ from price if it exists
+			const price = hotel?.priceForDisplay?.replace('$', '')
+			const rating = hotel?.bubbleRating?.rating
+			// Replace {width} with 140 and {height} with 80
+			const image = hotel?.cardPhotos?.[0]?.sizes?.urlTemplate?.replace('{width}', '200').replace('{height}', '100')
+			return { id, name, price, rating, image }
+		})
+		setHotels(hotels)
+		setLoading(false)
 	}
 
 	return (
@@ -36,7 +50,7 @@ const Hotels = ({ setOpenModal, setHotel, city }) => {
 					</button>
 
 					<HotelSearch search={search} setSearch={setSearch} getHotels={getHotels} city={city} />
-					<HotelsList hotels={hotels} setHotel={setHotel} setOpenModal={setOpenModal} />
+					<HotelsList hotels={hotels} searchData={search} setHotel={setHotel} setOpenModal={setOpenModal} loading={loading} />
 				</div>
 			</div>
 		</>

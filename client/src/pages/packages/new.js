@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/layout/Header'
 import Flights from '@/components/packages/Flights'
 import Hotels from '@/components/packages/Hotels'
+import Activities from '@/components/packages/Activities'
 import NewPackageForm from '@/components/packages/NewPackageForm'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 
@@ -18,6 +19,8 @@ const NewPackage = () => {
 	const [openFlightsModal, setOpenFlightsModal] = useState(false)
 	const [hotel, setHotel] = useState(null)
 	const [openHotelsModal, setOpenHotelsModal] = useState(false)
+	const [activities, setActivities] = useState([])
+	const [openActivitiesModal, setOpenActivitiesModal] = useState(false)
 
 	const handleChange = (e) => {
 		const { name, value, type, checked } = e.target
@@ -30,7 +33,6 @@ const NewPackage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		handleImageSubmit()
-		console.log(packageData)
 	}
 
 	const handleImageSubmit = async (e) => {
@@ -57,7 +59,6 @@ const NewPackage = () => {
 			const response = await s3.send(command)
 			// Get image URL
 			const imageUrl = `https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/packages/${fileName}`
-			console.log(imageUrl)
 		}
 		catch (error) {
 			console.error('Error at handleImageSubmit in package creation:', error)
@@ -82,6 +83,9 @@ const NewPackage = () => {
 							hotel={hotel}
 							setHotel={setHotel}
 							setOpenHotelsModal={setOpenHotelsModal}
+							activities={activities}
+							setActivities={setActivities}
+							setOpenActivitiesModal={setOpenActivitiesModal}
 						/>
 					</div>
 				</div>
@@ -90,6 +94,9 @@ const NewPackage = () => {
 				}
 				{openHotelsModal &&
 					<Hotels setOpenModal={setOpenHotelsModal} setHotel={setHotel} city={packageData?.city} />
+				}
+				{openActivitiesModal &&
+					<Activities setOpenModal={setOpenActivitiesModal} setActivities={setActivities} activities={activities} />
 				}
 			</main>
 		</>
