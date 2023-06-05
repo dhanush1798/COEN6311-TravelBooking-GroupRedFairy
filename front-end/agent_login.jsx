@@ -1,19 +1,16 @@
 'use client'
-const UserLogin = () => {
+const AgentLogin = () => {
   return (
     <>
       <style jsx>{`
         body {
           background-color: #f2f2f2;
           font-family: "Times New Roman", sans-serif;
-        }
-
-        .container {
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
           height: 100vh;
+          flex-direction: column;
         }
 
         h2 {
@@ -28,6 +25,14 @@ const UserLogin = () => {
           background-color: #ffffff;
           border-radius: 5px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
         }
 
         label {
@@ -66,9 +71,9 @@ const UserLogin = () => {
       `}</style>
 
       <div className="container">
-        <h2>User Login</h2>
+        <h2>Agent Login</h2>
 
-        <form action="/login" method="post">
+        <form action="/agent-login" method="post">
           <label htmlFor="username">Username:</label>
           <input type="text" id="username" name="username" required />
 
@@ -76,16 +81,10 @@ const UserLogin = () => {
           <input type="password" id="password" name="password" required />
 
           <input type="submit" value="Login" />
-
-          <a href="/front-end/forgot_password.html">Forgot Password?</a>
-
-          <p>
-            Don't have an account? <a href="/front-end/create_user_account.html">Create Account</a>
-          </p>
         </form>
       </div>
     </>
   );
 };
 
-export default UserLogin;
+export default AgentLogin;

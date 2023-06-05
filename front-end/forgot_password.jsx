@@ -1,19 +1,17 @@
 'use client'
-const UserLogin = () => {
+const ForgotPassword = () => {
   return (
     <>
       <style jsx>{`
+        
         body {
           background-color: #f2f2f2;
           font-family: "Times New Roman", sans-serif;
-        }
-
-        .container {
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
           height: 100vh;
+          flex-direction: column;
         }
 
         h2 {
@@ -29,14 +27,22 @@ const UserLogin = () => {
           border-radius: 5px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
 
         label {
           display: block;
           margin-bottom: 5px;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        input[type="email"],
+        input[type="date"] {
           width: 100%;
           padding: 8px;
           margin-bottom: 10px;
@@ -55,37 +61,27 @@ const UserLogin = () => {
           cursor: pointer;
         }
 
-        a {
-          text-decoration: none;
-          color: #4CAF50;
-        }
-
         p {
           text-align: center;
         }
+        
       `}</style>
 
       <div className="container">
-        <h2>User Login</h2>
+        <h2>Forgot Password</h2>
 
-        <form action="/login" method="post">
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" required />
+        <form action="/agent-reset-password" method="post">
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" required />
 
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+          <label htmlFor="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required />
 
-          <input type="submit" value="Login" />
-
-          <a href="/front-end/forgot_password.html">Forgot Password?</a>
-
-          <p>
-            Don't have an account? <a href="/front-end/create_user_account.html">Create Account</a>
-          </p>
+          <input type="submit" value="Reset Password" />
         </form>
       </div>
     </>
   );
 };
 
-export default UserLogin;
+export default ForgotPassword;
