@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Concordia Travel - Packages</title>
+  <style>
+    body {
+      font-family: "Times New Roman", sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 0px;
+    }
+
+    header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline;
+      margin-left: 20px;
+    }
+
+    nav li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav li a:hover {
+      color: #ffcc00;
+      transform: scale(1.1);
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    h3 {
+      text-decoration: underline;
+    }
+
+    .package {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .package h3 {
+      margin-top: 0;
+    }
+
+    .package p {
+      margin-bottom: 5px;
+      color: #666;
+    }
+
+    .package .book-now {
+      float: right;
+      margin-top: -20px;
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+    <a href="/home.html">
+        <img src="/logo.png" alt="Concordia Travel Logo">
+    </a>
+    Concordia Travel</h1>
+    <nav>
+      <ul>
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="/packages.html">Packages</a></li>
+        <li><a href="#">Create Your Own</a></li>
+        <li><a href="/agent_login.html">Agent Login</a></li>
+        <li><a href="/user_login.html">User Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Explore our Travel Packages</h2>
+
+    <div class="package">
+      <h3>Package 1</h3>
+      <p>City: Paris, France</p>
+      <p>Flight: Air France</p>
+      <p>Hotel: Novotel Paris Les Halles</p>
+      <p>Duration: 7 days, 6 nights</p>
+      <p>Activities: Sightseeing, guided tours</p>
+      <p>Price: $2000</p>
+      <button class="book-now">Book Now</button>
+    </div>
+
+    <div class="package">
+      <h3>Package 2</h3>
+      <p>City: Tokyo, Japan</p>
+      <p>Flight: Japan Airlines</p>
+      <p>Hotel: Park Hyatt Tokyo</p>
+      <p>Duration: 10 days, 9 nights</p>
+      <p>Activities: Cultural experiences, local cuisine</p>
+      <p>Price: $3000</p>
+      <button class="book-now">Book Now</button>
+    </div>
+
+    <div class="package">
+      <h3>Package 3</h3>
+      <p>City: New York City, USA</p>
+      <p>Flight: Delta Airlines</p>
+      <p>Hotel: Westgate New York Grand Central</p>
+      <p>Duration: 5 days, 4 nights</p>
+      <p>Activities: Broadway shows, city tours</p>
+      <p>Price: $1500</p>
+      <button class="book-now">Book Now</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Concordia Travel. All rights reserved.</p>
+  </footer>
+</body>
+</html>

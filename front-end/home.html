@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Concordia Travel</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Times New Roman", sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 0px;
+    }
+
+    header h1 {
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      margin-right: 10px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline;
+      margin-left: 20px;
+    }
+
+    nav li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav li a:hover {
+      color: #ffcc00;
+      transform: scale(1.1);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="/home.html">
+        <img src="/logo.png" alt="Concordia Travel Logo">
+      </a>
+      Concordia Travel
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="/packages.html">Packages</a></li>
+        <li><a href="#">Create Your Own</a></li>
+        <li><a href="/agent_login.html">Agent Login</a></li>
+        <li><a href="/user_login.html">User Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Explore our Travel Packages</h2>
+      <p>Choose from a wide selection of pre-made travel packages:</p>
+      <div class="packages">
+        <!-- Display pre-made packages here -->
+        <ul>
+          <li>Package 1</li>
+          <li>Package 2</li>
+          <li>Package 3</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Create Your Own Package</h2>
+      <p>Customize your travel experience:</p>
+      <div class="custom-package">
+        <!-- Display options for creating a custom package here -->
+        <form>
+          <label for="flights">Select a flight:</label>
+          <select id="flights">
+            <option value="flight1">Flight 1</option>
+            <option value="flight2">Flight 2</option>
+            <option value="flight3">Flight 3</option>
+          </select>
+
+          <label for="hotels">Select a hotel:</label>
+          <select id="hotels">
+            <option value="hotel1">Hotel 1</option>
+            <option value="hotel2">Hotel 2</option>
+            <option value="hotel3">Hotel 3</option>
+          </select>
+
+          <label for="activities">Select activities:</label>
+          <select id="activities" multiple>
+            <option value="activity1">Activity 1</option>
+            <option value="activity2">Activity 2</option>
+            <option value="activity3">Activity 3</option>
+          </select>
+
+          <button type="submit">Create Package</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Concordia Travel. All rights reserved.</p>
+  </footer>
+</body>
+</html>

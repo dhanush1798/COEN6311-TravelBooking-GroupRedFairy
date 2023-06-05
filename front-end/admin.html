@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Login</title>
+  <title>Admin Panel</title>
   <style>
     body {
       background-color: #f2f2f2;
@@ -55,7 +55,7 @@
 
     a {
       text-decoration: none;
-      color: #4CAF50;
+      color: #333;
     }
 
     p {
@@ -90,20 +90,20 @@
     </a>
   </header>
 
-  <h2>User Login</h2>
+  <h2>Admin Panel</h2>
 
-  <form action="/login" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+  <form action="/create_agent" method="post">
+    <label for="agentname">Agent Name:</label>
+    <input type="text" id="agentname" name="agentname" required>
+
+    <label for="email">Email ID:</label>
+    <input type="text" id="email" name="email" required>
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
 
-    <input type="submit" value="Login">
+    <input type="submit" value="Create">
 
-    <a href="/forgot_password.html">Forgot Password?</a>
-
-    <p>Don't have an account? <a href="/create_user_account.html">Create Account</a></p>
   </form>
 </body>
 </html>
