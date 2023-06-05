@@ -7,7 +7,6 @@ export default async function handler(req, res) {
 		},
 	})
 	// If status is 200, return success message
-	console.log(data.status)
 	if (data.status === 200) {
 		res.status(200).json({ success: true })
 	}
