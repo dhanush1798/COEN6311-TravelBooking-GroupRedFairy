@@ -14,6 +14,9 @@ const Account = () => {
 					{user ? (
 						<>
 							<h1>Account</h1>
+							<p>{user.first_name}</p>
+                            				<p>{user.last_name}</p>
+                            				<p>{user.dob}</p>
 							<p>{user.email}</p>
 						</>
 					) : (
